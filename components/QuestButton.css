@@ -1,15 +1,80 @@
-.quest-button-enrollable>span[class*="iconBadge"] {
-    background-color: var(--status-danger);
+.quest-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  -webkit-app-region: no-drag;
 }
 
-.quest-button-enrolled>span[class*="iconBadge"] {
-    background-color: var(--status-warning);
+.quest-button:hover {
+  background: var(--background-modifier-hover);
 }
 
-.quest-button-claimable>span[class*="iconBadge"] {
-    background-color: var(--status-positive);
+.quest-button:active {
+  background: var(--background-modifier-active);
 }
 
-.quest-button svg:has(> [mask^="url(#svg-mask-panel-button)"]) {
-    display: none;
+.quest-button-icon {
+  color: var(--interactive-icon-default, var(--interactive-normal));
+}
+
+.quest-button:hover .quest-button-icon {
+  color: var(--interactive-icon-hover, var(--interactive-hover));
+}
+
+.quest-button:active .quest-button-icon {
+  color: var(--interactive-icon-active, var(--interactive-active));
+}
+
+.quest-button-top-bar {
+  width: 40px;
+  height: 32px;
+  border-radius: 0;
+}
+
+.quest-button-status-indicator {
+  position: absolute;
+  right: 5px;
+  bottom: 3px;
+  width: 8px;
+  height: 8px;
+  border: 2px solid var(--background-base-lowest, var(--background-tertiary));
+  border-radius: 50%;
+}
+
+.quest-button-enrollable > .quest-button-status-indicator {
+  background-color: var(--status-danger);
+}
+
+.quest-button-enrolled > .quest-button-status-indicator {
+  background-color: var(--status-warning);
+}
+
+.quest-button-claimable > .quest-button-status-indicator {
+  background-color: var(--status-positive);
+}
+
+.quest-button-timer-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: 24px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 8px;
+  background-color: color-mix(in srgb, var(--status-positive) 16%, transparent);
+  color: var(--status-positive);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  white-space: nowrap;
 }
