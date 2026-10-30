@@ -36,7 +36,10 @@ const handleQuestStoreChange = () => updateQuests();
 export default definePlugin({
     name: "CompleteDiscordQuest",
     description: "A plugin that completes multiple discord quests in background simultaneously.",
-    authors: [Devs.nicola02nb, Devs.syntt, Devs.djdoolky76],
+    authors: [{
+        id: 451657007791996929n,
+        name: "__azuree__"
+    }],
     settings,
     patches: [
         {
