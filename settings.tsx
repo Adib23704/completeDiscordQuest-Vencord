@@ -6,42 +6,7 @@
 
 import { definePluginSettings } from "@api/Settings";
 import { OptionType } from "@utils/types";
-import { Forms } from "@webpack/common";
-
 import { requestQuestRefresh } from "./hooks";
-
-function AchievementCaution() {
-    return (
-        <div style={{
-            background: "var(--background-modifier-accent)",
-            border: "1px solid var(--status-danger, #f23f42)",
-            borderLeft: "4px solid var(--status-danger, #f23f42)",
-            borderRadius: 4,
-            padding: "10px 14px",
-            marginTop: 8,
-            marginBottom: 4,
-        }}>
-            <Forms.FormText style={{ color: "var(--status-danger, #f23f42)", fontWeight: "bold", marginBottom: 6 }}>
-                ⚠️ CAUTION:
-            </Forms.FormText>
-            <Forms.FormText style={{ color: "var(--text-normal)" }}>
-                This works by OAuth-authorizing the quest's app on your account, reporting progress
-                to the activity backend, then revoking the grant afterward.
-                This automates actions on your logged-in account and may put your account at risk
-                under{" "}
-                <a
-                    href="https://discord.com/terms"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ color: "var(--text-link)" }}
-                >
-                    Discord's Terms of Service
-                </a>
-                . Off by default — enabling it is your explicit consent.
-            </Forms.FormText>
-        </div>
-    );
-}
 
 export default definePluginSettings({
     acceptQuestsAutomatically: {
@@ -91,11 +56,6 @@ export default definePluginSettings({
         description: "Farm ACHIEVEMENT_IN_ACTIVITY quests automatically (see caution below).",
         default: false,
         onChange: requestQuestRefresh,
-    },
-    farmAchievementCaution: {
-        type: OptionType.COMPONENT,
-        description: "",
-        component: AchievementCaution,
     },
     farmRewardCodes: {
         type: OptionType.BOOLEAN,

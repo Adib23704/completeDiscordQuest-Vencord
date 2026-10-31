@@ -36,10 +36,7 @@ const handleQuestStoreChange = () => updateQuests();
 export default definePlugin({
     name: "CompleteDiscordQuest",
     description: "A plugin that completes multiple discord quests in background simultaneously.",
-    authors: [{
-        id: 451657007791996929n,
-        name: "__azuree__"
-    }],
+    authors: [{ name: "__azuree__", id: 451657007791996929n }],
     settings,
     patches: [
         {
@@ -662,7 +659,7 @@ async function bypassAchievement(questId: string, appId: string, target: number,
             throw error;
         }
         let dsToken: string | undefined;
-        try { dsToken = (JSON.parse(dsAuthRes.body) as { token?: string; }).token; }
+        try { dsToken = (JSON.parse(dsAuthRes.body) as { token?: string }).token; }
         catch { throw new Error("discordsays returned non-JSON: " + String(dsAuthRes.body).slice(0, 120)); }
         if (!dsToken) throw new Error("no discordsays token");
 
